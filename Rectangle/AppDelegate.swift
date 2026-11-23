@@ -24,6 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private var snappingManager: SnappingManager!
     private var stackBadgeManager: StackBadgeManager!
     private var titleBarManager: TitleBarManager!
+    private var modifierDragManager: ModifierDragManager!
     private var greenButtonManager: GreenButtonManager!
     private var newWindowActionManager: NewWindowActionManager!
     
@@ -149,6 +150,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.snappingManager = SnappingManager()
         self.stackBadgeManager = StackBadgeManager()
         self.titleBarManager = TitleBarManager()
+        self.modifierDragManager = ModifierDragManager()
         self.greenButtonManager = GreenButtonManager()
         self.newWindowActionManager = NewWindowActionManager()
         self.initializeTodo()

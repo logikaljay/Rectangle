@@ -57,6 +57,14 @@ final class BehaviorSettingsViewModel {
             handleDoubleClickTitleBarToggle(doubleClickTitleBar)
         }
     }
+
+    var modifierDragWindow: Bool {
+        didSet {
+            guard Defaults.modifierDragWindow.enabled != modifierDragWindow else { return }
+            Defaults.modifierDragWindow.enabled = modifierDragWindow
+            Notification.Name.modifierDragWindow.post()
+        }
+    }
     
     var autoMaximize: Bool {
         didSet {
@@ -198,6 +206,7 @@ final class BehaviorSettingsViewModel {
         self.useCursorScreenDetection = Defaults.useCursorScreenDetection.enabled
         
         self.doubleClickTitleBar = WindowAction(rawValue: Defaults.doubleClickTitleBar.value - 1) != nil
+        self.modifierDragWindow = Defaults.modifierDragWindow.enabled
         self.autoMaximize = !Defaults.autoMaximize.userDisabled
         self.greenButtonOverride = Defaults.greenButtonOverride.enabled
         self.experimentalAnimations = Defaults.experimentalWindowAnimations.enabled
@@ -260,6 +269,7 @@ final class BehaviorSettingsViewModel {
         self.useCursorScreenDetection = Defaults.useCursorScreenDetection.enabled
         
         self.doubleClickTitleBar = WindowAction(rawValue: Defaults.doubleClickTitleBar.value - 1) != nil
+        self.modifierDragWindow = Defaults.modifierDragWindow.enabled
         self.autoMaximize = !Defaults.autoMaximize.userDisabled
         self.greenButtonOverride = Defaults.greenButtonOverride.enabled
         self.experimentalAnimations = Defaults.experimentalWindowAnimations.enabled

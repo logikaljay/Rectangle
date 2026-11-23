@@ -125,6 +125,13 @@ struct BehaviorSettingsView: View {
                         Toggle("Repeated maximize restores the previous size and position", isOn: $viewModel.repeatedMaximizeRestoresPrevious)
 
                         VStack(alignment: .leading, spacing: 2) {
+                            Toggle("⌘-drag to move windows, ⌘-right-drag to resize", isOn: $viewModel.modifierDragWindow)
+                            Text("Drag anywhere in a window. Resizing uses the corner nearest the pointer; add ⇧ to resize only the nearest edge. A ⌘-click without dragging still reaches the app.")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+
+                        VStack(alignment: .leading, spacing: 2) {
                             Toggle("Green stoplight button maximizes instead of Full Screen", isOn: $viewModel.greenButtonOverride)
                             Text("Hold any modifier key or use the window menu for default macOS behavior")
                                 .font(.caption)

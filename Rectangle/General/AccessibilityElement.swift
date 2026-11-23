@@ -167,6 +167,18 @@ class AccessibilityElement {
         }
     }
 
+    /// Moves the window without touching its size, for continuous pointer-driven moves.
+    func setPosition(_ origin: CGPoint) {
+        performFrameAdjustment { position = origin }
+    }
+
+    /// Resizes the window without touching its position, returning the size the window accepted.
+    @discardableResult
+    func setSize(_ newSize: CGSize) -> CGSize? {
+        performFrameAdjustment { size = newSize }
+        return size
+    }
+
     /// A move can release a size restriction imposed by the old screen or Dock edge.
     /// An unconfirmed size refusal may be transient until the window moves on-screen.
     func setImmediateFrame(_ target: CGRect, from before: CGRect, sizeFirst: Bool,

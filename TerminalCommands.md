@@ -14,6 +14,7 @@ The preferences window is purposefully slim, but there's a lot that can be modif
 - [Make Center respect the Stage Manager strip](#make-center-respect-the-stage-manager-strip)
 - [Enable Todo Mode](#enable-todo-mode)
 - [Only allow drag-to-snap when modifier keys are pressed](#only-allow-drag-to-snap-when-modifier-keys-are-pressed)
+- [Modifier-drag to move and resize windows](#modifier-drag-to-move-and-resize-windows)
 - [Almost Maximize](#almost-maximize)
 - [Repeated Maximize restores the previous size and position](#repeated-maximize-restores-the-previous-size-and-position)
 - [Add an extra centering command with custom size](#add-an-extra-centering-command-with-custom-size)
@@ -176,6 +177,20 @@ This command would be for restricting snap to the cmd key:
 
 ```bash
 defaults write com.knollsoft.Rectangle snapModifiers -int 1048576
+```
+
+## Modifier-drag to move and resize windows
+
+Like Hyprland and other tiling window managers, hold a modifier and drag anywhere in a window: left-drag moves it, right-drag resizes it from the corner nearest the pointer, and shift+right-drag resizes only the nearest edge (width from a side, height from the top or bottom). A modified click that doesn't drag is passed through to the app unchanged. This can also be turned on in Settings.
+
+```bash
+defaults write com.knollsoft.Rectangle modifierDragWindow -bool true
+```
+
+The modifier defaults to cmd. To use a different combination, set the sum of the modifier values (shift: 131072, ctrl: 262144, option: 524288, cmd: 1048576). For example, ctrl+cmd:
+
+```bash
+defaults write com.knollsoft.Rectangle modifierDragWindowModifiers -int 1310720
 ```
 
 ## Almost Maximize

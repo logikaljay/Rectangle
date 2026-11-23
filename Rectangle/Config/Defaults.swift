@@ -136,6 +136,8 @@ class Defaults {
     static let combinedDisplayMode = OptionalBoolDefault(key: "combinedDisplayMode")
     static let greenButtonOverride = BoolDefault(key: "greenButtonOverride")
     static let mouseButtonShortcutsUseWindowUnderCursor = BoolDefault(key: "mouseButtonShortcutsUseWindowUnderCursor")
+    static let modifierDragWindow = BoolDefault(key: "modifierDragWindow")
+    static let modifierDragWindowModifiers = IntDefault(key: "modifierDragWindowModifiers")
     static let ignoreShortcutsInMissionControl = BoolDefault(key: "ignoreShortcutsInMissionControl", defaultValue: true)
     static let newWindowAction = StringDefault(key: "newWindowAction")
     static let wasWelcomeDisplayed = BoolDefault(key: "wasWelcomeDisplayed")
@@ -251,6 +253,8 @@ class Defaults {
         moveFixedSizeToEdge,
         greenButtonOverride,
         mouseButtonShortcutsUseWindowUnderCursor,
+        modifierDragWindow,
+        modifierDragWindowModifiers,
         ignoreShortcutsInMissionControl
     ]
 }
